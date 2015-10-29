@@ -20,6 +20,7 @@ resource "aws_launch_configuration" "asg_lc" {
   instance_type = "${var.instance_type}"
   user_data = "${template_file.init.rendered}"
   security_groups = ["${var.sg_private_id}"]
+  key_name = ["${var.key_name}"]
 }
 
 resource "aws_autoscaling_policy" "asg" {
